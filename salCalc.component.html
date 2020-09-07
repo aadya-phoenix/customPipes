@@ -1,0 +1,26 @@
+<div> <label for="">Basic Salary</label>
+    <input (input) = takeSalary($event) type="text" placeholder="enter  salary">
+    <p [ngStyle]="{'background-color':salaryService.gs()>9000?'blue':'green'}">Gross Salary is {{salaryService.gs()}}</p>
+    <p [ngClass]="salaryService.ns()>5000?'red':'green'">Net Salary is {{salaryService.ns()}}</p>
+</div>
+
+<fieldset>
+    <legend>Output</legend>
+    <p>Basic Salary is {{basicSal}}</p>
+    <p>HRA is {{salaryService.hra()}}</p>
+    <p>TA is {{salaryService.ta()}}</p>
+    <p>DA is {{salaryService.da()}} </p>
+    <p>PF is {{salaryService.pf()}}</p>
+    <p>GS is {{salaryService.gs()}}</p>
+    <p>NS is {{salaryService.ns()}}</p>
+        
+</fieldset>
+
+<input type="text"  (input)="takeCardNumber($event)"  placeholder="">
+<img src="{{cardNumber|card}}" alt="">
+<p>fruits are {{fruits|json}}</p>
+<ul>
+    <li *ngFor="let fruit of fruits; let i = index">
+         {{i+1}} {{fruit.name|uppercase|prefix:''|slice:0:4}} {{fruit.price|currency:'INR':true:'.1'}}
+    </li>
+</ul>
